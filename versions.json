@@ -1,6 +1,4 @@
-{"versions": 
-    [{
-        "versiontype": "proofreading",
+{"versions": [{"versiontype": "proofreading",
 		"title": "Formal approaches to complexity in heritage languages",
 		"authors": [{"name": "Maria Polinsky"}, {"name": "Michael T. Putnam"}],
 	"license": "CC-BY-4.0",
