@@ -1,0 +1,38 @@
+\usepackage{tabularx,multicol}
+\usepackage{url}
+\urlstyle{same}
+\usepackage{multirow}
+
+\usepackage{stmaryrd}
+\usepackage{soul}
+\usepackage{enumitem}
+
+\usepackage{siunitx}
+\sisetup{group-digits=none}
+
+\usepackage{langsci-optional}
+\usepackage{langsci-lgr}
+\usepackage{langsci-textipa}
+\usepackage{langsci-branding}
+
+\usepackage{tikz-qtree}
+
+\usepackage{pgfplots}
+\usepackage{qtree}
+\qtreecenterfalse
+\usepackage{tree-dvips}
+\usepackage{subcaption}
+
+\let\clipbox\undefined
+\usepackage{adjustbox}
+\usepackage[linguistics, edges]{forest}
+\usepackage{langsci-gb4e}
+
+% ORCIDs in langsci-affiliations 
+\usepackage{orcidlink}
+\SetupAffiliations{orcid placement=before}
+\definecolor{orcidlogocol}{cmyk}{0,0,0,1}
+\RenewDocumentCommand{\LinkToORCIDinAffiliations}{ +m }
+  {%
+    \orcidlink{#1}\,%
+  }

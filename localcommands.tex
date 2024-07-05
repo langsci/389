@@ -1,0 +1,106 @@
+\newcommand*{\orcid}[1]{}
+
+
+\makeatletter
+\let\thetitle\@title
+\let\theauthor\@author
+\makeatother
+
+\newcommand{\togglepaper}[1][0]{
+   \bibliography{../localbibliography}
+   \papernote{\scriptsize\normalfont
+     \theauthor.
+     \titleTemp.
+     To appear in:
+     E. Di Tor \& Herr Rausgeberin (ed.).
+     Booktitle in localcommands.tex.
+     Berlin: Language Science Press. [preliminary page numbering]
+   }
+   \pagenumbering{roman}
+   \setcounter{chapter}{#1}
+   \addtocounter{chapter}{-1}
+}
+
+\newbool{bookcompile}
+\booltrue{bookcompile}
+\newcommand{\bookorchapter}[2]{\ifbool{bookcompile}{#1}{#2}}
+
+
+\forestset{
+  my nice empty nodes/.style={% modified from manual page 52
+    for tree={
+      calign=fixed edge angles,
+      calign angle=50,
+    },
+    delay={
+      where n children=0{
+        if content={}{
+          content=\strut,
+          anchor=north,
+        }{
+          align=center
+        },
+      }{
+        if content={}{
+          shape=coordinate,
+          for parent={
+            for children={
+              anchor=north
+            }
+          }
+        }{}
+      }
+    },
+  },
+  my pretty nice empty nodes/.style={
+    for tree={
+      calign=fixed edge angles,
+      calign angle=50,
+      parent anchor=south,
+      delay={
+        where n children=0{
+          if content={}{
+            content=\strut,
+            anchor=north,
+          }{
+            align=center
+          },
+        }{
+          if content={}{
+            inner sep=0pt,
+            edge path={\noexpand\path [\forestoption{edge}] (!u.parent anchor) -- (.south)\forestoption{edge label};}
+          }{}
+        }
+      }
+    }
+  }
+}
+
+
+\newcommand{\sem}[1]{\mbox{$[\![$#1$]\!]$}}
+\newcommand{\type}[1]{\ensuremath{\left \langle #1 \right \rangle }}
+\newcommand{\lam}{\ensuremath{\lambda}}
+\renewcommand{\and}{$\wedge$ }
+\newcommand{\bex}{\begin{exe}}
+\newcommand{\eex}{\end{exe}}
+\newcommand{\bit}{\begin{itemize}}
+\newcommand{\eit}{\end{itemize}}
+\newcommand{\ben}{\begin{enumerate}}
+\newcommand{\een}{\end{enumerate}}
+
+\newcommand{\gcs}[1]{\textcolor{blue}{[gcs: #1]}}
+\newcommand{\ash}[1]{\textcolor{orange}{[ash: #1]}}
+\newcommand{\ngn}[1]{\textcolor{purple}{[ngn: #1]}}
+
+\newcommand{\firstrefdash}{}
+
+
+\forestset{
+fairly nice empty nodes/.style={
+delay={where content={}
+{shape=coordinate, for siblings={anchor=north}}{}},
+for tree={s sep=4mm}
+}
+}
+
+
